@@ -38,6 +38,7 @@ public class Actor {
 		
 		try {
 			conn = daoFactory.checkOut();
+			if(actorName == null) actorName = "";
 			pstmt = DaoUtils.prepareStatement(conn, SQL_GET_ACTORS, false, new Object[]{actorName + "%"});
 			rs = pstmt.executeQuery();
 			int count = 0;
