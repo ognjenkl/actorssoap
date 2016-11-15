@@ -32,8 +32,30 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="insertActor">
+    <complexType>
+     <sequence>
+      <element name="actorName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertActorResponse">
+    <complexType>
+     <sequence>
+      <element name="insertActorReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
   </schema>
  </wsdl:types>
+
+   <wsdl:message name="insertActorResponse">
+
+      <wsdl:part element="impl:insertActorResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
 
    <wsdl:message name="getActorsRequest">
 
@@ -54,6 +76,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:message name="getActorsResponse">
 
       <wsdl:part element="impl:getActorsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertActorRequest">
+
+      <wsdl:part element="impl:insertActor" name="parameters">
 
       </wsdl:part>
 
@@ -88,6 +118,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:getActorsResponse" name="getActorsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertActor">
+
+         <wsdl:input message="impl:insertActorRequest" name="insertActorRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertActorResponse" name="insertActorResponse">
 
        </wsdl:output>
 
@@ -128,6 +170,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="getActorsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertActor">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertActorRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertActorResponse">
 
             <wsdlsoap:body use="literal"/>
 
