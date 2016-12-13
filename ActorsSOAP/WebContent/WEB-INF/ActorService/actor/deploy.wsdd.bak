@@ -26,7 +26,7 @@
       <operation name="getActors" qname="operNS:getActors" xmlns:operNS="http://actor" returnQName="retNS:getActorsReturn" xmlns:retNS="http://actor" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:actorName" xmlns:pns="http://actor" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <operation name="insertActor" qname="operNS:insertActor" xmlns:operNS="http://actor" returnQName="retNS:insertActorReturn" xmlns:retNS="http://actor" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      <operation name="insertActor" qname="operNS:insertActor" xmlns:operNS="http://actor" returnQName="retNS:insertActorReturn" xmlns:retNS="http://actor" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:actorName" xmlns:pns="http://actor" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <parameter name="allowedMethods" value="getActors insertActor addActor"/>

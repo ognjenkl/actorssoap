@@ -9,6 +9,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.mysql.jdbc.Statement;
+
 import dao.ConnectionPool;
 import dao.DaoFactory;
 import dao.DaoUtils;
@@ -62,27 +64,37 @@ public class Actor {
 		return jArray.toString();
 	}
 	
-	public static boolean insertActor(String actorName){
+	public static Integer insertActor(String actorName){
 		Connection conn = null;
 		PreparedStatement ppst = null;
-		boolean retVal = false;
+		Integer retVal = null;
 		
 		try{
 			conn = ConnectionPool.getConnectionPool().checkOut();
-			ppst = conn.prepareStatement(SQL_INSERT_ACTOR);
+			ppst = conn.prepareStatement(SQL_INSERT_ACTOR, Statement.RETURN_GENERATED_KEYS);
 			ppst.setString(1, actorName);
 			ppst.setString(2, actorName);
 			
+			ppst.executeUpdate();
 			
-			if (ppst.executeUpdate() > 0)
-				retVal = true;
-		
-			ppst.close();
+			ResultSet rs = ppst.getGeneratedKeys();
+			
+			if(rs.next())
+				retVal = rs.getInt(1);
+			
+			
 			return retVal;
 		} catch (Exception e){
 			//to do log
 			return retVal;
-		} finally {
+		} finally {	
+			if(ppst != null)
+				try {
+					ppst.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			ConnectionPool.getConnectionPool().checkIn(conn);
 		}
 	}

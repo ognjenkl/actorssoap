@@ -42,7 +42,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <element name="insertActorResponse">
     <complexType>
      <sequence>
-      <element name="insertActorReturn" type="xsd:boolean"/>
+      <element name="insertActorReturn" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
