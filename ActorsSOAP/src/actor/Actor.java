@@ -67,6 +67,7 @@ public class Actor {
 	public static Integer insertActor(String actorName){
 		Connection conn = null;
 		PreparedStatement ppst = null;
+		ResultSet resultSet = null;
 		Integer retVal = null;
 		
 		try{
@@ -75,17 +76,19 @@ public class Actor {
 			ppst.setString(1, actorName);
 			ppst.setString(2, actorName);
 			
-			ppst.executeUpdate();
+			int rowCount = ppst.executeUpdate();
 			
-			ResultSet rs = ppst.getGeneratedKeys();
+			resultSet = ppst.getGeneratedKeys();
 			
-			if(rs.next())
-				retVal = rs.getInt(1);
+			if(rowCount > 0 && resultSet.next())
+				retVal = resultSet.getInt(1);
+			else
+				retVal = -1;
 			
-			
+			ppst.close();
 			return retVal;
 		} catch (Exception e){
-			//to do log
+			//TODO log
 			return retVal;
 		} finally {	
 			if(ppst != null)

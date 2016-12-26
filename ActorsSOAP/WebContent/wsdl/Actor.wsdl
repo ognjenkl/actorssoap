@@ -4,20 +4,6 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://actor" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="addActor">
-    <complexType>
-     <sequence>
-      <element name="actor" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="addActorResponse">
-    <complexType>
-     <sequence>
-      <element name="addActorReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
    <element name="getActors">
     <complexType>
      <sequence>
@@ -29,6 +15,20 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <complexType>
      <sequence>
       <element name="getActorsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addActor">
+    <complexType>
+     <sequence>
+      <element name="actor" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addActorResponse">
+    <complexType>
+     <sequence>
+      <element name="addActorReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -65,17 +65,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="addActorResponse">
+   <wsdl:message name="getActorsResponse">
 
-      <wsdl:part element="impl:addActorResponse" name="parameters">
+      <wsdl:part element="impl:getActorsResponse" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="getActorsResponse">
+   <wsdl:message name="addActorResponse">
 
-      <wsdl:part element="impl:getActorsResponse" name="parameters">
+      <wsdl:part element="impl:addActorResponse" name="parameters">
 
       </wsdl:part>
 
@@ -99,18 +99,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="Actor">
 
-      <wsdl:operation name="addActor">
-
-         <wsdl:input message="impl:addActorRequest" name="addActorRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:addActorResponse" name="addActorResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="getActors">
 
          <wsdl:input message="impl:getActorsRequest" name="getActorsRequest">
@@ -118,6 +106,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:getActorsResponse" name="getActorsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addActor">
+
+         <wsdl:input message="impl:addActorRequest" name="addActorRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addActorResponse" name="addActorResponse">
 
        </wsdl:output>
 
@@ -141,24 +141,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="addActor">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="addActorRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="addActorResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="getActors">
 
          <wsdlsoap:operation soapAction=""/>
@@ -170,6 +152,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="getActorsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addActor">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addActorRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addActorResponse">
 
             <wsdlsoap:body use="literal"/>
 
