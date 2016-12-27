@@ -48,7 +48,7 @@ public class Actor {
 			}
 
 			
-			System.out.println("from soap: " + jArray.toString());
+			//System.out.println("from soap: " + jArray.toString());
 			daoFactory.checkIn(conn);
 			
 		} catch (SQLException e) {
