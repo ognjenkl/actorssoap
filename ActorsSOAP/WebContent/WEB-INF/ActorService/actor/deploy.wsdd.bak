@@ -29,7 +29,10 @@
       <operation name="insertActor" qname="operNS:insertActor" xmlns:operNS="http://actor" returnQName="retNS:insertActorReturn" xmlns:retNS="http://actor" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:actorName" xmlns:pns="http://actor" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <parameter name="allowedMethods" value="getActors insertActor addActor"/>
+      <operation name="getAllMoviesByTitleLike" qname="operNS:getAllMoviesByTitleLike" xmlns:operNS="http://actor" returnQName="retNS:getAllMoviesByTitleLikeReturn" xmlns:retNS="http://actor" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:searchText" xmlns:pns="http://actor" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="getActors getAllMoviesByTitleLike insertActor addActor"/>
 
   </service>
 </deployment>

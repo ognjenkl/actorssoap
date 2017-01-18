@@ -7,6 +7,8 @@ import java.io.Serializable;
  *
  */
 public class ActorDTO implements Serializable {
+
+	private static final long serialVersionUID = -6240807069534138567L;
 	
 	int id;
 	String name;

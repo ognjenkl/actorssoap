@@ -46,8 +46,30 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="getAllMoviesByTitleLike">
+    <complexType>
+     <sequence>
+      <element name="searchText" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAllMoviesByTitleLikeResponse">
+    <complexType>
+     <sequence>
+      <element name="getAllMoviesByTitleLikeReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
   </schema>
  </wsdl:types>
+
+   <wsdl:message name="getAllMoviesByTitleLikeRequest">
+
+      <wsdl:part element="impl:getAllMoviesByTitleLike" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
 
    <wsdl:message name="insertActorResponse">
 
@@ -76,6 +98,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:message name="addActorResponse">
 
       <wsdl:part element="impl:addActorResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllMoviesByTitleLikeResponse">
+
+      <wsdl:part element="impl:getAllMoviesByTitleLikeResponse" name="parameters">
 
       </wsdl:part>
 
@@ -135,6 +165,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="getAllMoviesByTitleLike">
+
+         <wsdl:input message="impl:getAllMoviesByTitleLikeRequest" name="getAllMoviesByTitleLikeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllMoviesByTitleLikeResponse" name="getAllMoviesByTitleLikeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name="ActorSoapBinding" type="impl:Actor">
@@ -188,6 +230,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="insertActorResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllMoviesByTitleLike">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllMoviesByTitleLikeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllMoviesByTitleLikeResponse">
 
             <wsdlsoap:body use="literal"/>
 
