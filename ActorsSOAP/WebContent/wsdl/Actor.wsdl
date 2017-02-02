@@ -4,31 +4,17 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://actor" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="getActors">
+   <element name="getAllMoviesByTitleLike">
     <complexType>
      <sequence>
-      <element name="actorName" type="xsd:string"/>
+      <element name="searchText" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getActorsResponse">
+   <element name="getAllMoviesByTitleLikeResponse">
     <complexType>
      <sequence>
-      <element name="getActorsReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="addActor">
-    <complexType>
-     <sequence>
-      <element name="actor" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="addActorResponse">
-    <complexType>
-     <sequence>
-      <element name="addActorReturn" type="xsd:string"/>
+      <element name="getAllMoviesByTitleLikeReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -46,17 +32,31 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="getAllMoviesByTitleLike">
+   <element name="addActor">
     <complexType>
      <sequence>
-      <element name="searchText" type="xsd:string"/>
+      <element name="actor" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getAllMoviesByTitleLikeResponse">
+   <element name="addActorResponse">
     <complexType>
      <sequence>
-      <element name="getAllMoviesByTitleLikeReturn" type="xsd:string"/>
+      <element name="addActorReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getActors">
+    <complexType>
+     <sequence>
+      <element name="actorName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getActorsResponse">
+    <complexType>
+     <sequence>
+      <element name="getActorsReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -87,17 +87,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getActorsResponse">
+   <wsdl:message name="addActorResponse">
 
-      <wsdl:part element="impl:getActorsResponse" name="parameters">
+      <wsdl:part element="impl:addActorResponse" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="addActorResponse">
+   <wsdl:message name="getActorsResponse">
 
-      <wsdl:part element="impl:addActorResponse" name="parameters">
+      <wsdl:part element="impl:getActorsResponse" name="parameters">
 
       </wsdl:part>
 
@@ -129,25 +129,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="Actor">
 
-      <wsdl:operation name="getActors">
+      <wsdl:operation name="getAllMoviesByTitleLike">
 
-         <wsdl:input message="impl:getActorsRequest" name="getActorsRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getActorsResponse" name="getActorsResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="addActor">
-
-         <wsdl:input message="impl:addActorRequest" name="addActorRequest">
+         <wsdl:input message="impl:getAllMoviesByTitleLikeRequest" name="getAllMoviesByTitleLikeRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:addActorResponse" name="addActorResponse">
+         <wsdl:output message="impl:getAllMoviesByTitleLikeResponse" name="getAllMoviesByTitleLikeResponse">
 
        </wsdl:output>
 
@@ -165,13 +153,25 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getAllMoviesByTitleLike">
+      <wsdl:operation name="addActor">
 
-         <wsdl:input message="impl:getAllMoviesByTitleLikeRequest" name="getAllMoviesByTitleLikeRequest">
+         <wsdl:input message="impl:addActorRequest" name="addActorRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:getAllMoviesByTitleLikeResponse" name="getAllMoviesByTitleLikeResponse">
+         <wsdl:output message="impl:addActorResponse" name="addActorResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getActors">
+
+         <wsdl:input message="impl:getActorsRequest" name="getActorsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getActorsResponse" name="getActorsResponse">
 
        </wsdl:output>
 
@@ -183,35 +183,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="getActors">
+      <wsdl:operation name="getAllMoviesByTitleLike">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="getActorsRequest">
+         <wsdl:input name="getAllMoviesByTitleLikeRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="getActorsResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="addActor">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="addActorRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="addActorResponse">
+         <wsdl:output name="getAllMoviesByTitleLikeResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -237,17 +219,35 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getAllMoviesByTitleLike">
+      <wsdl:operation name="addActor">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="getAllMoviesByTitleLikeRequest">
+         <wsdl:input name="addActorRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="getAllMoviesByTitleLikeResponse">
+         <wsdl:output name="addActorResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getActors">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getActorsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getActorsResponse">
 
             <wsdlsoap:body use="literal"/>
 

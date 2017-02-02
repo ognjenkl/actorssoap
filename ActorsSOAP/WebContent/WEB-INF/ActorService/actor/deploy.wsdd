@@ -10,17 +10,17 @@
       <parameter name="className" value="actor.Actor"/>
       <parameter name="wsdlPortType" value="Actor"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://actor" xmlns:retNS="http://actor" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getActors" qname="operNS:getActors" returnQName="retNS:getActorsReturn" returnType="rtns:string" soapAction="">
+      <operation xmlns:operNS="http://actor" xmlns:retNS="http://actor" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getAllMoviesByTitleLike" qname="operNS:getAllMoviesByTitleLike" returnQName="retNS:getAllMoviesByTitleLikeReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://actor" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:searchText" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://actor" xmlns:retNS="http://actor" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="insertActor" qname="operNS:insertActor" returnQName="retNS:insertActorReturn" returnType="rtns:int" soapAction="">
         <parameter xmlns:pns="http://actor" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:actorName" type="tns:string"/>
       </operation>
       <operation xmlns:operNS="http://actor" xmlns:retNS="http://actor" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addActor" qname="operNS:addActor" returnQName="retNS:addActorReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://actor" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:actor" type="tns:string"/>
       </operation>
-      <operation xmlns:operNS="http://actor" xmlns:retNS="http://actor" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="insertActor" qname="operNS:insertActor" returnQName="retNS:insertActorReturn" returnType="rtns:int" soapAction="">
+      <operation xmlns:operNS="http://actor" xmlns:retNS="http://actor" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getActors" qname="operNS:getActors" returnQName="retNS:getActorsReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://actor" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:actorName" type="tns:string"/>
-      </operation>
-      <operation xmlns:operNS="http://actor" xmlns:retNS="http://actor" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getAllMoviesByTitleLike" qname="operNS:getAllMoviesByTitleLike" returnQName="retNS:getAllMoviesByTitleLikeReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://actor" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:searchText" type="tns:string"/>
       </operation>
       <parameter name="allowedMethods" value="getActors getAllMoviesByTitleLike insertActor addActor"/>
 
